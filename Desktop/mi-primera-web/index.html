@@ -25,6 +25,27 @@
                 <li>🛒 E-commerce Básico ($1500-4000 USD)</li>
             </ul>
         </div>
+        <div class="bg-gray-50 p-4 rounded-lg">
+            <h2 class="font-semibold text-gray-700 mb-2">¿Por qué contratarme?</h2>
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-1">✓</span>
+                    Entrega rápida
+                </div>
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-1">✓</span>
+                    Diseño moderno
+                </div>
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-1">✓</span>
+                    Responsive 100%
+                </div>
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-1">✓</span>
+                    SEO optimizado
+                </div>
+            </div>
+        </div>
         <!-- Calculadora de Precios -->
         <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl mt-4">
             <h2 class="font-bold text-gray-800 mb-4">🧮 Calculadora de Precios</h2>
@@ -65,7 +86,6 @@
                     </label>
                 </div>
             </div>
-
             <div class="mt-4 p-4 bg-white rounded-lg border-2 border-green-200">
                 <div class="flex justify-between items-center">
                     <span class="font-bold text-gray-700">Total estimado:</span>
@@ -77,24 +97,135 @@
                 </button>
             </div>
         </div>
-        <div class="bg-gray-50 p-4 rounded-lg">
-            <h2 class="font-semibold text-gray-700 mb-2">¿Por qué contratarme?</h2>
-            <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                <div class="flex items-center">
-                    <span class="text-green-500 mr-1">✓</span>
-                    Entrega rápida
+
+        <!-- Formulario de Contacto Profesional -->
+        <div class="bg-white border-2 border-gray-200 p-6 rounded-xl mt-6 shadow-lg">
+            <h2 class="font-bold text-gray-800 mb-4 text-center">
+                📬 ¿Listo para empezar tu proyecto?
+            </h2>
+
+            <form id="formulario-contacto" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
+                            Nombre completo *
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            placeholder="Ej: Juan Pérez">
+                        <span id="error-nombre" class="text-red-500 text-sm hidden">Por favor ingresa tu
+                            nombre</span>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                            Email corporativo *
+                        </label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            placeholder="Ej: juan@miempresa.com">
+                        <span id="error-email" class="text-red-500 text-sm hidden">Email inválido</span>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <span class="text-green-500 mr-1">✓</span>
-                    Diseño moderno
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
+                            Teléfono
+                        </label>
+                        <input type="tel" id="telefono" name="telefono"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            placeholder="Ej: +52 55 1234 5678">
+                    </div>
+
+                    <div>
+                        <label for="empresa" class="block text-sm font-medium text-gray-700 mb-1">
+                            Empresa
+                        </label>
+                        <input type="text" id="empresa" name="empresa"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            placeholder="Ej: Mi Startup S.A.">
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <span class="text-green-500 mr-1">✓</span>
-                    Responsive 100%
+
+                <div>
+                    <label for="tipo-servicio" class="block text-sm font-medium text-gray-700 mb-1">
+                        Servicio de interés *
+                    </label>
+                    <select id="tipo-servicio" name="tipo-servicio" required
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">Selecciona un servicio</option>
+                        <option value="landing">Landing Page ($300-800)</option>
+                        <option value="corporativa">Página Corporativa ($800-2000)</option>
+                        <option value="ecommerce">E-commerce ($1500-4000)</option>
+                        <option value="webapp">Aplicación Web ($2500+)</option>
+                        <option value="consultoria">Consultoría/Otro</option>
+                    </select>
+                    <span id="error-servicio" class="text-red-500 text-sm hidden">Selecciona un servicio</span>
                 </div>
+
+                <div>
+                    <label for="presupuesto" class="block text-sm font-medium text-gray-700 mb-1">
+                        Presupuesto estimado
+                    </label>
+                    <select id="presupuesto" name="presupuesto"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">Prefiero no especificar</option>
+                        <option value="300-800">$300 - $800 USD</option>
+                        <option value="800-1500">$800 - $1500 USD</option>
+                        <option value="1500-3000">$1500 - $3000 USD</option>
+                        <option value="3000+">$3000+ USD</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
+                        Describe tu proyecto *
+                    </label>
+                    <textarea id="mensaje" name="mensaje" required rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Cuéntame sobre tu proyecto: ¿qué necesitas?, ¿cuándo lo necesitas?, ¿tienes referentes?"></textarea>
+                    <span id="error-mensaje" class="text-red-500 text-sm hidden">Describe tu proyecto (mín. 20
+                        caracteres)</span>
+                </div>
+
+                <div>
+                    <label for="timeline" class="block text-sm font-medium text-gray-700 mb-1">
+                        ¿Cuándo necesitas el proyecto?
+                    </label>
+                    <select id="timeline" name="timeline"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="urgente">Urgente (1-2 semanas) +20% costo</option>
+                        <option value="normal" selected>Normal (3-4 semanas)</option>
+                        <option value="flexible">Flexible (1-2 meses) -10% descuento</option>
+                    </select>
+                </div>
+
+                <div class="flex items-start">
+                    <input type="checkbox" id="terminos" name="terminos" required class="mt-1 mr-2">
+                    <label for="terminos" class="text-sm text-gray-600">
+                        Acepto recibir comunicaciones sobre mi proyecto y entiendo que mis datos serán tratados de
+                        forma confidencial. *
+                    </label>
+                </div>
+                <span id="error-terminos" class="text-red-500 text-sm hidden">Debes aceptar los términos</span>
+
+                <button type="submit" id="btn-enviar"
+                    class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                    🚀 Enviar solicitud de proyecto
+                </button>
+            </form>
+
+            <!-- Mensaje de confirmación (oculto inicialmente) -->
+            <div id="mensaje-exito" class="hidden mt-4 p-4 bg-green-100 border-l-4 border-green-500 rounded">
                 <div class="flex items-center">
-                    <span class="text-green-500 mr-1">✓</span>
-                    SEO optimizado
+                    <div class="text-green-600 text-xl mr-3">✅</div>
+                    <div>
+                        <h3 class="text-green-800 font-semibold">¡Solicitud enviada correctamente!</h3>
+                        <p class="text-green-700 text-sm mt-1">
+                            Te contactaré en las próximas 24 horas para agendar una videollamada gratuita de 30 min.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,6 +360,298 @@
                 });
             });
         </script>
+        <script>
+            // Formulario de contacto con validación profesional
+            class FormularioContacto {
+                constructor() {
+                    this.form = document.getElementById('formulario-contacto');
+                    this.initEventListeners();
+                }
+
+                initEventListeners() {
+                    // Validación en tiempo real mientras escriben
+                    document.getElementById('nombre').addEventListener('blur', () => this.validarNombre());
+                    document.getElementById('email').addEventListener('blur', () => this.validarEmail());
+                    document.getElementById('tipo-servicio').addEventListener('change', () => this.validarServicio());
+                    document.getElementById('mensaje').addEventListener('blur', () => this.validarMensaje());
+                    document.getElementById('terminos').addEventListener('change', () => this.validarTerminos());
+
+                    // Submit del formulario
+                    this.form.addEventListener('submit', (e) => this.enviarFormulario(e));
+
+                    // Auto-calcular costo basado en servicio y timeline
+                    document.getElementById('tipo-servicio').addEventListener('change', () => this.actualizarCostoEstimado());
+                    document.getElementById('timeline').addEventListener('change', () => this.actualizarCostoEstimado());
+                }
+
+                validarNombre() {
+                    const nombre = document.getElementById('nombre').value.trim();
+                    const error = document.getElementById('error-nombre');
+
+                    if (nombre.length < 2) {
+                        this.mostrarError('error-nombre', 'El nombre debe tener al menos 2 caracteres');
+                        return false;
+                    }
+                    if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre)) {
+                        this.mostrarError('error-nombre', 'Solo se permiten letras y espacios');
+                        return false;
+                    }
+
+                    this.ocultarError('error-nombre');
+                    return true;
+                }
+
+                validarEmail() {
+                    const email = document.getElementById('email').value.trim();
+                    const error = document.getElementById('error-email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (!emailRegex.test(email)) {
+                        this.mostrarError('error-email', 'Ingresa un email válido');
+                        return false;
+                    }
+
+                    // Validar que no sean emails genéricos para proyectos serios
+                    const dominiosGenericos = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com'];
+                    const dominio = email.split('@')[1];
+
+                    if (dominiosGenericos.includes(dominio)) {
+                        this.mostrarError('error-email', 'Para proyectos corporativos prefiero email empresarial');
+                        // No retorna false porque no es error crítico
+                    } else {
+                        this.ocultarError('error-email');
+                    }
+
+                    return true;
+                }
+
+                validarServicio() {
+                    const servicio = document.getElementById('tipo-servicio').value;
+
+                    if (!servicio) {
+                        this.mostrarError('error-servicio', 'Selecciona el servicio que necesitas');
+                        return false;
+                    }
+
+                    this.ocultarError('error-servicio');
+                    return true;
+                }
+
+                validarMensaje() {
+                    const mensaje = document.getElementById('mensaje').value.trim();
+
+                    if (mensaje.length < 20) {
+                        this.mostrarError('error-mensaje', 'Describe tu proyecto con más detalle (mín. 20 caracteres)');
+                        return false;
+                    }
+                    if (mensaje.length > 500) {
+                        this.mostrarError('error-mensaje', 'El mensaje es muy largo (máx. 500 caracteres)');
+                        return false;
+                    }
+
+                    this.ocultarError('error-mensaje');
+                    return true;
+                }
+
+                validarTerminos() {
+                    const terminos = document.getElementById('terminos').checked;
+
+                    if (!terminos) {
+                        this.mostrarError('error-terminos', 'Debes aceptar los términos para continuar');
+                        return false;
+                    }
+
+                    this.ocultarError('error-terminos');
+                    return true;
+                }
+
+                mostrarError(elementId, mensaje) {
+                    const errorElement = document.getElementById(elementId);
+                    errorElement.textContent = mensaje;
+                    errorElement.classList.remove('hidden');
+
+                    // Marcar campo como inválido visualmente
+                    const input = errorElement.previousElementSibling;
+                    if (input) {
+                        input.classList.add('border-red-500', 'bg-red-50');
+                        input.classList.remove('border-gray-300');
+                    }
+                }
+
+                ocultarError(elementId) {
+                    const errorElement = document.getElementById(elementId);
+                    errorElement.classList.add('hidden');
+
+                    // Marcar campo como válido
+                    const input = errorElement.previousElementSibling;
+                    if (input) {
+                        input.classList.remove('border-red-500', 'bg-red-50');
+                        input.classList.add('border-green-500', 'bg-green-50');
+                    }
+                }
+
+                actualizarCostoEstimado() {
+                    const servicio = document.getElementById('tipo-servicio').value;
+                    const timeline = document.getElementById('timeline').value;
+
+                    const precios = {
+                        'landing': 550,
+                        'corporativa': 1400,
+                        'ecommerce': 2750,
+                        'webapp': 4000,
+                        'consultoria': 800
+                    };
+
+                    let costo = precios[servicio] || 0;
+
+                    // Ajustar por timeline
+                    if (timeline === 'urgente') costo *= 1.2;
+                    if (timeline === 'flexible') costo *= 0.9;
+
+                    // Mostrar costo estimado (opcional: agregar elemento para mostrar esto)
+                    console.log(`Costo estimado: $${Math.round(costo)} USD`);
+                }
+
+                async enviarFormulario(e) {
+                    e.preventDefault();
+
+                    // Validar todos los campos
+                    const validaciones = [
+                        this.validarNombre(),
+                        this.validarEmail(),
+                        this.validarServicio(),
+                        this.validarMensaje(),
+                        this.validarTerminos()
+                    ];
+
+                    const todosValidos = validaciones.every(v => v === true);
+
+                    if (!todosValidos) {
+                        this.mostrarNotificacion('error', '❌ Por favor corrige los errores antes de enviar');
+                        return;
+                    }
+
+                    // Simular envío
+                    const boton = document.getElementById('btn-enviar');
+                    const textoOriginal = boton.innerHTML;
+
+                    // Estado de carga
+                    boton.innerHTML = '⏳ Enviando...';
+                    boton.disabled = true;
+
+                    try {
+                        // Simular llamada a API
+                        await this.simularEnvio();
+
+                        // Éxito
+                        this.mostrarExito();
+                        this.limpiarFormulario();
+
+                    } catch (error) {
+                        this.mostrarNotificacion('error', '❌ Error al enviar. Inténtalo de nuevo.');
+                    } finally {
+                        // Restaurar botón
+                        boton.innerHTML = textoOriginal;
+                        boton.disabled = false;
+                    }
+                }
+
+                async simularEnvio() {
+                    // Simular delay de red
+                    return new Promise((resolve) => {
+                        setTimeout(resolve, 2000);
+                    });
+                }
+
+                mostrarExito() {
+                    document.getElementById('mensaje-exito').classList.remove('hidden');
+                    this.form.style.display = 'none';
+
+                    // Scroll al mensaje de éxito
+                    document.getElementById('mensaje-exito').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                limpiarFormulario() {
+                    this.form.reset();
+                    // Limpiar estilos de validación
+                    const inputs = this.form.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        input.classList.remove('border-red-500', 'bg-red-50', 'border-green-500', 'bg-green-50');
+                        input.classList.add('border-gray-300');
+                    });
+                }
+
+                mostrarNotificacion(tipo, mensaje) {
+                    // Crear notificación temporal
+                    const notif = document.createElement('div');
+                    notif.className = `fixed top-4 right-4 p-4 rounded-lg z-50 ${tipo === 'error' ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
+                        }`;
+                    notif.innerHTML = mensaje;
+
+                    document.body.appendChild(notif);
+
+                    setTimeout(() => {
+                        notif.remove();
+                    }, 3000);
+                }
+            }
+
+            // Inicializar formulario cuando carga la página
+            document.addEventListener('DOMContentLoaded', () => {
+                new FormularioContacto();
+            });
+        </script>
+        <script>
+    // Versión simple: solo mostrar progreso de completado
+    function mostrarProgreso() {
+        const campos = ['nombre', 'email', 'tipo-servicio', 'mensaje'];
+        let completados = 0;
+        
+        campos.forEach(campoId => {
+            const campo = document.getElementById(campoId);
+            if (campo && campo.value.trim()) {
+                completados++;
+            }
+        });
+        
+        const porcentaje = Math.round((completados / campos.length) * 100);
+        
+        // Crear o actualizar barra de progreso
+        let barraProgreso = document.getElementById('barra-progreso');
+        if (!barraProgreso) {
+            barraProgreso = document.createElement('div');
+            barraProgreso.id = 'barra-progreso';
+            document.getElementById('formulario-contacto').insertBefore(barraProgreso, document.getElementById('formulario-contacto').firstChild);
+        }
+        
+        barraProgreso.innerHTML = `
+            <div class="mb-4 p-3 bg-blue-50 rounded-lg">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-blue-800">Progreso del formulario</span>
+                    <span class="text-sm text-blue-600">${porcentaje}%</span>
+                </div>
+                <div class="w-full bg-blue-200 rounded-full h-2">
+                    <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: ${porcentaje}%"></div>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Actualizar progreso en tiempo real
+    document.addEventListener('DOMContentLoaded', () => {
+        ['nombre', 'email', 'tipo-servicio', 'mensaje'].forEach(campoId => {
+            const campo = document.getElementById(campoId);
+            if (campo) {
+                campo.addEventListener('input', mostrarProgreso);
+                campo.addEventListener('change', mostrarProgreso);
+            }
+        });
+        
+        mostrarProgreso(); // Mostrar progreso inicial
+    });
+</script>
     </div>
 
 </body>
