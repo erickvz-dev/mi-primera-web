@@ -230,6 +230,78 @@
             </div>
         </div>
 
+        <!-- Generador de Propuestas Automático -->
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl mt-6 border">
+            <h2 class="font-bold text-gray-800 mb-4 text-center">
+                🤖 Generador de Propuestas Automático
+            </h2>
+            <p class="text-sm text-gray-600 mb-4 text-center">
+                Basado en tu información, genero una propuesta personalizada en segundos
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Industria:</label>
+                    <select id="industria-cliente" class="w-full p-2 border rounded-lg">
+                        <option value="restaurante">Restaurante/Food</option>
+                        <option value="consultoria">Consultoría</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="salud">Salud/Medicina</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="inmobiliaria">Bienes Raíces</option>
+                        <option value="educacion">Educación</option>
+                        <option value="fitness">Fitness/Gym</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tamaño empresa:</label>
+                    <select id="tamano-empresa" class="w-full p-2 border rounded-lg">
+                        <option value="startup">Startup (1-10 empleados)</option>
+                        <option value="pequena">Pequeña (11-50 empleados)</option>
+                        <option value="mediana">Mediana (51-200 empleados)</option>
+                        <option value="grande">Grande (200+ empleados)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Urgencia:</label>
+                    <select id="urgencia-proyecto" class="w-full p-2 border rounded-lg">
+                        <option value="normal">Normal (3-4 semanas)</option>
+                        <option value="rapido">Rápido (2 semanas)</option>
+                        <option value="urgente">Urgente (1 semana)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="generar-propuesta"
+                class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300">
+                ✨ Generar propuesta personalizada
+            </button>
+
+            <!-- Resultado generado -->
+            <div id="propuesta-generada" class="hidden mt-6 p-6 bg-white rounded-xl border-2 border-indigo-200">
+                <h3 class="font-bold text-gray-800 mb-4 flex items-center">
+                    📋 Tu propuesta personalizada
+                    <button id="copiar-propuesta"
+                        class="ml-auto text-sm bg-indigo-100 text-indigo-700 px-3 py-1 rounded hover:bg-indigo-200">
+                        📋 Copiar
+                    </button>
+                </h3>
+                <div id="contenido-propuesta" class="text-gray-700 text-sm leading-relaxed"></div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg">
+                    <p class="text-green-800 font-semibold text-sm">💡 Próximos pasos:</p>
+                    <ol class="text-green-700 text-sm mt-2 space-y-1">
+                        <li>1. Copia esta propuesta</li>
+                        <li>2. Personalízala con detalles específicos del cliente</li>
+                        <li>3. Envíala por email o WhatsApp</li>
+                        <li>4. Agenda una videollamada de 30 min</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
         <div class="mt-4 p-3 bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-lg">
             <p class="text-sm text-yellow-800 font-medium">
                 💡 ¿Tienes un proyecto en mente? ¡Hablemos!
@@ -604,29 +676,29 @@
             });
         </script>
         <script>
-    // Versión simple: solo mostrar progreso de completado
-    function mostrarProgreso() {
-        const campos = ['nombre', 'email', 'tipo-servicio', 'mensaje'];
-        let completados = 0;
-        
-        campos.forEach(campoId => {
-            const campo = document.getElementById(campoId);
-            if (campo && campo.value.trim()) {
-                completados++;
-            }
-        });
-        
-        const porcentaje = Math.round((completados / campos.length) * 100);
-        
-        // Crear o actualizar barra de progreso
-        let barraProgreso = document.getElementById('barra-progreso');
-        if (!barraProgreso) {
-            barraProgreso = document.createElement('div');
-            barraProgreso.id = 'barra-progreso';
-            document.getElementById('formulario-contacto').insertBefore(barraProgreso, document.getElementById('formulario-contacto').firstChild);
-        }
-        
-        barraProgreso.innerHTML = `
+            // Versión simple: solo mostrar progreso de completado
+            function mostrarProgreso() {
+                const campos = ['nombre', 'email', 'tipo-servicio', 'mensaje'];
+                let completados = 0;
+
+                campos.forEach(campoId => {
+                    const campo = document.getElementById(campoId);
+                    if (campo && campo.value.trim()) {
+                        completados++;
+                    }
+                });
+
+                const porcentaje = Math.round((completados / campos.length) * 100);
+
+                // Crear o actualizar barra de progreso
+                let barraProgreso = document.getElementById('barra-progreso');
+                if (!barraProgreso) {
+                    barraProgreso = document.createElement('div');
+                    barraProgreso.id = 'barra-progreso';
+                    document.getElementById('formulario-contacto').insertBefore(barraProgreso, document.getElementById('formulario-contacto').firstChild);
+                }
+
+                barraProgreso.innerHTML = `
             <div class="mb-4 p-3 bg-blue-50 rounded-lg">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-sm font-medium text-blue-800">Progreso del formulario</span>
@@ -637,19 +709,235 @@
                 </div>
             </div>
         `;
+            }
+
+            // Actualizar progreso en tiempo real
+            document.addEventListener('DOMContentLoaded', () => {
+                ['nombre', 'email', 'tipo-servicio', 'mensaje'].forEach(campoId => {
+                    const campo = document.getElementById(campoId);
+                    if (campo) {
+                        campo.addEventListener('input', mostrarProgreso);
+                        campo.addEventListener('change', mostrarProgreso);
+                    }
+                });
+
+                mostrarProgreso(); // Mostrar progreso inicial
+            });
+        </script>
+        <script>
+    // Sistema de generación de propuestas
+    class GeneradorPropuestas {
+        constructor() {
+            this.plantillas = this.inicializarPlantillas();
+            this.precios = this.inicializarPrecios();
+            this.initEventListeners();
+        }
+        
+        inicializarPlantillas() {
+            return {
+                restaurante: {
+                    problemas: ["menús desactualizados online", "reservas por teléfono únicamente", "falta presencia digital"],
+                    soluciones: ["sistema de reservas online", "menú interactivo", "integración con delivery"],
+                    beneficios: ["más reservas automáticas", "mejor experiencia cliente", "aumento en pedidos online"]
+                },
+                consultoria: {
+                    problemas: ["falta credibilidad online", "no genera leads digitales", "competencia invisible"],
+                    soluciones: ["página profesional", "blog de expertise", "sistema de captación"],
+                    beneficios: ["más clientes potenciales", "posicionamiento experto", "automatización ventas"]
+                },
+                ecommerce: {
+                    problemas: ["ventas solo físicas", "inventario manual", "competencia online"],
+                    soluciones: ["tienda online profesional", "sistema de pagos", "marketing digital"],
+                    beneficios: ["ventas 24/7", "alcance nacional", "escalabilidad automática"]
+                },
+                salud: {
+                    problemas: ["citas solo telefónicas", "información desactualizada", "falta confianza digital"],
+                    soluciones: ["sistema de citas online", "contenido médico profesional", "testimonios pacientes"],
+                    beneficios: ["más citas automatizadas", "mejor reputación", "pacientes informados"]
+                }
+            };
+        }
+        
+        inicializarPrecios() {
+            return {
+                base: {
+                    startup: { landing: 400, corporativa: 800, ecommerce: 1800, webapp: 3000 },
+                    pequena: { landing: 600, corporativa: 1200, ecommerce: 2500, webapp: 4500 },
+                    mediana: { landing: 800, corporativa: 1800, ecommerce: 3500, webapp: 6000 },
+                    grande: { landing: 1200, corporativa: 2500, ecommerce: 5000, webapp: 8000 }
+                },
+                multiplicadores: {
+                    normal: 1.0,
+                    rapido: 1.3,
+                    urgente: 1.6
+                }
+            };
+        }
+        
+        initEventListeners() {
+            document.getElementById('generar-propuesta').addEventListener('click', () => {
+                this.generarPropuesta();
+            });
+            
+            document.getElementById('copiar-propuesta').addEventListener('click', () => {
+                this.copiarPropuesta();
+            });
+        }
+        
+        async generarPropuesta() {
+            const boton = document.getElementById('generar-propuesta');
+            const resultado = document.getElementById('propuesta-generada');
+            
+            // Estado de carga
+            boton.innerHTML = '⏳ Generando propuesta...';
+            boton.disabled = true;
+            
+            // Simular procesamiento de IA
+            await this.simularProcesamiento();
+            
+            // Obtener datos del formulario
+            const industria = document.getElementById('industria-cliente').value;
+            const tamano = document.getElementById('tamano-empresa').value;
+            const urgencia = document.getElementById('urgencia-proyecto').value;
+            
+            // Generar propuesta
+            const propuesta = this.construirPropuesta(industria, tamano, urgencia);
+            
+            // Mostrar resultado
+            document.getElementById('contenido-propuesta').innerHTML = propuesta;
+            resultado.classList.remove('hidden');
+            
+            // Restaurar botón
+            boton.innerHTML = '✨ Generar nueva propuesta';
+            boton.disabled = false;
+            
+            // Scroll al resultado
+            resultado.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        construirPropuesta(industria, tamano, urgencia) {
+            const plantilla = this.plantillas[industria] || this.plantillas.consultoria;
+            const precios = this.calcularPrecios(tamano, urgencia);
+            
+            return `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">🎯 Situación Actual</h4>
+                        <p class="text-gray-600">
+                            He analizado tu industria y veo que muchas empresas como la tuya enfrentan: 
+                            <strong>${plantilla.problemas.join(', ')}</strong>.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">💡 Mi Propuesta</h4>
+                        <p class="text-gray-600 mb-2">
+                            Propongo desarrollar una solución que incluya: <strong>${plantilla.soluciones.join(', ')}</strong>.
+                        </p>
+                        <p class="text-gray-600">
+                            Esto te permitirá: <strong>${plantilla.beneficios.join(', ')}</strong>.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">💰 Inversión</h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Landing Page:</span>
+                                <span class="font-semibold">$${precios.landing}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Página Corporativa:</span>
+                                <span class="font-semibold">$${precios.corporativa}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>E-commerce:</span>
+                                <span class="font-semibold">$${precios.ecommerce}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Web App:</span>
+                                <span class="font-semibold">$${precios.webapp}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">⏱️ Timeline</h4>
+                        <p class="text-gray-600">
+                            ${this.getTimelineText(urgencia)}
+                        </p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">✅ Lo que incluye</h4>
+                        <ul class="text-green-700 text-sm space-y-1">
+                            <li>• Diseño responsive (mobile + desktop)</li>
+                            <li>• Optimización SEO básica</li>
+                            <li>• Formularios de contacto funcionales</li>
+                            <li>• Integración con redes sociales</li>
+                            <li>• 2 rondas de revisiones incluidas</li>
+                            <li>• Capacitación para administrar contenido</li>
+                            <li>• Soporte por 30 días post-entrega</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+                        <p class="font-semibold text-gray-800">¿Te interesa avanzar?</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Agendemos una videollamada de 30 min (gratis) para afinar los detalles específicos de tu proyecto.
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        calcularPrecios(tamano, urgencia) {
+            const base = this.precios.base[tamano];
+            const multiplicador = this.precios.multiplicadores[urgencia];
+            
+            return {
+                landing: Math.round(base.landing * multiplicador),
+                corporativa: Math.round(base.corporativa * multiplicador),
+                ecommerce: Math.round(base.ecommerce * multiplicador),
+                webapp: Math.round(base.webapp * multiplicador)
+            };
+        }
+        
+        getTimelineText(urgencia) {
+            const textos = {
+                normal: "Entrega en 3-4 semanas con tiempo para iteraciones y perfeccionamiento.",
+                rapido: "Entrega acelerada en 2 semanas priorizando funcionalidad core.",
+                urgente: "Entrega express en 1 semana - proyecto prioritario con equipo dedicado (+60% costo adicional)."
+            };
+            return textos[urgencia];
+        }
+        
+        async simularProcesamiento() {
+            // Simular tiempo de "IA" generando
+            return new Promise(resolve => setTimeout(resolve, 2000));
+        }
+        
+        async copiarPropuesta() {
+            const contenido = document.getElementById('contenido-propuesta').innerText;
+            try {
+                await navigator.clipboard.writeText(contenido);
+                
+                const boton = document.getElementById('copiar-propuesta');
+                const textoOriginal = boton.innerHTML;
+                boton.innerHTML = '✅ Copiado';
+                
+                setTimeout(() => {
+                    boton.innerHTML = textoOriginal;
+                }, 2000);
+            } catch (err) {
+                alert('Propuesta lista para copiar:\n\n' + contenido);
+            }
+        }
     }
     
-    // Actualizar progreso en tiempo real
+    // Inicializar generador
     document.addEventListener('DOMContentLoaded', () => {
-        ['nombre', 'email', 'tipo-servicio', 'mensaje'].forEach(campoId => {
-            const campo = document.getElementById(campoId);
-            if (campo) {
-                campo.addEventListener('input', mostrarProgreso);
-                campo.addEventListener('change', mostrarProgreso);
-            }
-        });
-        
-        mostrarProgreso(); // Mostrar progreso inicial
+        new GeneradorPropuestas();
     });
 </script>
     </div>
